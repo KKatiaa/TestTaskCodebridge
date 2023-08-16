@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemServiceService } from '../../itemService/item-service.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ArticleData } from '../../interface/objectType';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-articles-list-component',
@@ -9,14 +8,11 @@ import { ArticleData } from '../../interface/objectType';
   styleUrls: ['./articles-list-component.component.scss']
 })
 export class ArticlesListComponentComponent implements OnInit {
-  constructor(private services: ItemServiceService, private fb: FormBuilder) {}
+  constructor(private services: ItemServiceService) {}
   dataFromServer: any;
-  dataObject: ArticleData = {};
   dataArray = [];
   resultList: any;
   articlesAmount: number;
-  form: FormGroup;
-  name = new FormControl('');
   myGroup: FormGroup;
   searchWords: string[];
 
@@ -32,10 +28,10 @@ export class ArticlesListComponentComponent implements OnInit {
     });
 
     this.myGroup = new FormGroup({
-      firstName: new FormControl()
+      name: new FormControl()
     });
 
-    this.myGroup.get('firstName').valueChanges.subscribe(
+    this.myGroup.get('name').valueChanges.subscribe(
       value => {
         this.searchWords = value.split(' ');
         this.sortByWord(this.dataArray, this.searchWords);
