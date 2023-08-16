@@ -18,11 +18,13 @@ export class ArticleItemDetailsComponent implements OnInit {
     this.services.getData().subscribe((result) => {
       this.dataFromServer = result.results;
       this.dataFromServer.forEach((el) => {
-        el.id === this.articleId ? this.articleData = el : '';
+        if (el.id === this.articleId) {
+          this.articleData = el;
+        }
       });
     });
-  }  
-  
+  }
+
   public routeToMainPage(): void {
     this.router.navigate(['']);
   }
