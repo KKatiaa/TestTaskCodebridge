@@ -1,0 +1,15 @@
+<div class="mainContent">
+    <div class="filterArticles" [formGroup]="myGroup">
+      <h1>Filter by keywords</h1>
+      <input id="firstName" type="text" formControlName="firstName" name="firstName" placeholder="The most successful IT companies in 2020" class="input icon inputSearch"/>
+    </div>
+    <div class="articlesCount">
+      <p class="textResult">Result: {{articlesAmount}}</p>
+      <hr>
+    </div>
+    <div class="wrapper">
+      <div class="articleItems" *ngFor="let result of resultList">
+        <app-article-item-component [data]="result"></app-article-item-component>
+      </div>
+    </div>
+</div>

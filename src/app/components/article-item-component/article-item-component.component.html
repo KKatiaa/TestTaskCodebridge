@@ -1,0 +1,20 @@
+<div *ngIf="data.sum" class="articleItem">
+    <div class="articleImg">
+        <img [src]="data.value.image_url"/>
+    </div>
+    <div class="articleInfo">
+      <div class="newsDate">
+        <img src="/assets/akar-icons_calendar.jpg" alt="calendar" class="calendarIcon"/>
+        <p class="calendarDate">
+          {{(data.value.published_at) | dateSuffix }}</p>
+      </div>
+      <div class="textDescription">
+        <p appHighlighter [text]="data.value.title" classToApply="highlighted-text" class="titleContaniner" [searchedWords]="data.text"></p>
+        <p appHighlighter [text]="data.value.summary" classToApply="highlighted-text" class="summaryContaniner" [searchedWords]="data.text"></p>
+      </div>
+    </div>
+    <div class="articleMoreInfo">
+      <button class="btnReadMore" (click)="routeToArticle()">Read more</button>
+      <img src="/assets/arrowRight.jpg" alt="icon"/>
+    </div>
+</div>
