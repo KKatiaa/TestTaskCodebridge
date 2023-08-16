@@ -1,10 +1,10 @@
 <div class="articleDetails">
   <div class="container imgBckgnd">
-    <img [src]="articleData.image_url" alt="img" class="positionImg"/>
+    <img [src]="articleData?.image_url" alt="img" class="positionImg"/>
   </div>
   <div class="container articleMainPart">
-    <h1 class="articleTitle">{{articleData.title}}</h1>
-    <p class="articleSummary">{{articleData.summary}}</p>
+    <h1 class="articleTitle">{{articleData?.title}}</h1>
+    <p class="articleSummary">{{articleData?.summary}}</p>
   </div>
   <div class="articleBackBtn">
     <img src="/assets/arrowLeft.jpg" alt="icon"/>
