@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemServiceService } from '../../itemService/item-service.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import SpaceNews from "../../json/space-news.json";
 
 @Component({
   selector: 'app-articles-list-component',
@@ -9,22 +10,21 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ArticlesListComponentComponent implements OnInit {
   constructor(private services: ItemServiceService) {}
-  dataFromServer: any;
   dataArray = [];
   resultList: any;
-  articlesAmount: number;
+  articlesAmount: number = 10;
   myGroup: FormGroup;
   searchWords: string[];
+  public result;
+  public SpaceNewsList:{name:string}[] = SpaceNews;
 
   ngOnInit(): void {
-    this.services.getData().subscribe((result) => {
-      this.dataFromServer = result.results;
-      this.articlesAmount = this.dataFromServer.length;
 
-      this.dataFromServer.forEach(el => {
-        this.dataArray.push({value: el, summary: false, title: false, sum: 10, text: ''});
-      });
-      this.resultList = this.dataArray;
+    this.result = this.SpaceNewsList.map(item => Object.values(item)[0]);
+    this.dataArray = this.result;
+    console.log('this.resultSpace = ', this.result[0].id);
+    this.services.getData2().subscribe((result) => {
+      console.log(result);
     });
 
     this.myGroup = new FormGroup({
@@ -42,20 +42,20 @@ export class ArticlesListComponentComponent implements OnInit {
   sortByWord(list, words) {
     this.articlesAmount = 0;
     list.forEach(element => {
-      words.some(word => element.value.summary.includes(word)) ? element.summary = true : element.summary = false;
-      words.some(word => element.value.title.includes(word)) ? element.title = true : element.title = false;
+      words.some(word => element.summary.includes(word)) ? element.summary2 = true : element.summary2 = false;
+      words.some(word => element.title.includes(word)) ? element.title2 = true : element.title2 = false;
 
-      if (element.title) {
+      if (element.title2) {
         element.sum = 20;
       }
-      if (!element.title && element.summary) {
+      if (!element.title2 && element.summary2) {
         element.sum = 10;
       }
-      if (!element.title && !element.summary) {
+      if (!element.title2 && !element.summary2) {
         element.sum = 0;
       }
       element.text = words;
-      if (element.sum > 0) {
+      if (element.sum2 > 0) {
         this.articlesAmount += 1;
       }
     });

@@ -1,13 +1,13 @@
 <div class="articleDetails">
   <div class="container imgBckgnd">
-    <img [src]="articleData?.image_url" alt="img" class="positionImg"/>
+    <img [src]="this.result[this.articleId-1].image_url" alt="img" class="positionImg"/>
   </div>
   <div class="container articleMainPart">
-    <h1 class="articleTitle">{{articleData?.title}}</h1>
-    <p class="articleSummary">{{articleData?.summary}}</p>
+    <h1 class="articleTitle">{{result[this.articleId-1]?.title}}</h1>
+    <p class="articleSummary">{{result[this.articleId-1]?.summary}}</p>
   </div>
   <div class="articleBackBtn">
     <img src="/assets/arrowLeft.jpg" alt="icon"/>
-    <button class="btnBack" (click)="routeToMainPage()">Back to homepage</button>
+    <button class="btnBack" (click)="routeToMainPage()">Назад на домашню сторінку</button>
   </div>
 </div>

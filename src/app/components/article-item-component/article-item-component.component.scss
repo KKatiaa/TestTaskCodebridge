@@ -28,6 +28,15 @@
         letter-spacing: 0em;
         text-align: left;
       }
+
+      .normal-state {
+        color: black; /* Normal color */
+        cursor: pointer; /* Show pointer cursor on hover */
+      }
+      
+      .clicked-state {
+        color: red; /* Color when clicked */
+      }
     }
 
     .textDescription{ 

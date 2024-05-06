@@ -1,0 +1,19 @@
+<div class="mainContent">
+  <div class="filterArticles" [formGroup]="myGroup">
+    <h1>Сортувати за словами</h1>
+    <input id="name" type="text" formControlName="name" name="name" placeholder="Шукати" class="input icon inputSearch"/>
+  </div>
+  <div class="thematic">
+    <app-themes></app-themes>
+    <h2>Новини культури</h2>
+  </div>
+  <div class="articlesCount">
+    <p class="textResult">Результат: 10</p>
+    <hr>
+  </div>
+  <div class="wrapper">
+    <div class="articleItems" *ngFor="let res of result">
+      <app-tesla-news-item [data]="res"></app-tesla-news-item>
+    </div>
+  </div>
+</div>

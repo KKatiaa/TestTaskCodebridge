@@ -1,0 +1,81 @@
+.mainContent {
+    margin: 2%;
+    .filterArticles {
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;      
+      }
+  
+      .inputSearch{
+        overflow: hidden;
+        background-color: white;
+        box-shadow: 1px 4px 8px rgba(100, 114, 125, 0.18);
+        display: inline;
+      }
+    
+      .input {
+        width: 280px;
+        height: 20px;
+        padding: 13px 204px 13px 20px;
+        border-radius: 5px;
+        border: 1px;
+      }
+    
+      .icon {
+        padding-left: 30px;
+        background: url("/assets/Vector.jpg") no-repeat left;
+        background-size: 20px;
+      }
+    }
+    
+    .thematic {
+      h2 {
+        font-size: 32px;
+        padding-left: 40%;
+        margin: 1%;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;      
+      }
+    }
+
+    .articlesCount {
+      margin: 1% 0 2% 0;
+  
+      .textResult {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;  
+      }
+    }
+  
+    .wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 30px;
+    
+      .div {
+        padding: 0;
+      }
+    
+      .articleItems {
+        overflow: hidden;
+        max-width: 348px;
+        background-color: white;
+        box-shadow: 1px 4px 8px rgba(100, 114, 125, 0.18);
+      }
+    }
+  }
+  
+  

@@ -1,0 +1,26 @@
+<div class="articleItem">
+    <div class="articleImg">
+        <img [src]="data.image_url"/>
+    </div>
+    <div class="articleInfo">
+      <div class="newsDate">
+        <img src="/assets/akar-icons_calendar.jpg" alt="calendar" class="calendarIcon"/>
+        <p class="calendarDate">
+          {{ data.published_at }}</p>
+        <div *ngIf="isClicked" (click)="toggleClicked()">
+          <img src="/assets/images/Like/full3.png"/>
+        </div>  
+        <div *ngIf="!isClicked" (click)="toggleClicked()">
+          <img src="/assets/images/Like/empty.png"/>
+        </div>   
+      </div>
+      <div class="textDescription">
+        <p appHighlighter [text]="data.title" classToApply="highlighted-text" class="titleContaniner" [searchedWords]="data.text"></p>
+        <p appHighlighter appTruncate [text]="data.summary" classToApply="highlighted-text" class="summaryContaniner" [searchedWords]="data.text"></p>
+      </div>
+    </div>
+    <div class="articleMoreInfo">
+      <button class="btnReadMore" (click)="routeToArticle()">Читати більше</button>
+      <img src="/assets/arrowRight.jpg" alt="icon"/>
+    </div>
+</div>
